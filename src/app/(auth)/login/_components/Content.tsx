@@ -50,7 +50,7 @@ export const Content = () => {
         fetchOptions: {
           onSuccess: () => {
             toast.success("Email sent")
-            router.push("/verify")
+            router.push(`/verify?email=${email}`)
           },
           onError: () => {
             toast.error("Something went wrong")
@@ -60,12 +60,14 @@ export const Content = () => {
     })
   }, [])
 
+  console.log(email)
+
 
   return (
     <CardContent className="flex flex-col gap-4">
       <Button disabled={githubLoginPending || emailLoginPending} className="w-full cursor-pointer" onClick={signInWithGithub} variant={"outline"}>
         {
-          (githubLoginPending || emailLoginPending)
+          (githubLoginPending)
             ? <> <Loader2 className="size-4 animate-spin" /> <span>Signing in...</span> </>
             : (
               <>
