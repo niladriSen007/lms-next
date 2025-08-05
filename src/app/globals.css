@@ -119,4 +119,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+}
+.carousel-button{
+  @apply absolute top-1/2 cursor-pointer rounded-full shadow-2xl bg-gray-100/20;
 }
