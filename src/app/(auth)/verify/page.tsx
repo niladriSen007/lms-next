@@ -1,11 +1,11 @@
 "use client"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import InpuOtp from "./_components/input-otp"
 import { Button } from "@/components/ui/button"
-import { startTransition, useState, useTransition } from "react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { authClient } from "@/lib/auth-client"
 import { useRouter, useSearchParams } from "next/navigation"
+import { useState, useTransition } from "react"
 import { toast } from "sonner"
+import InpuOtp from "./_components/input-otp"
 
 const VerifyAccountPage = () => {
 
