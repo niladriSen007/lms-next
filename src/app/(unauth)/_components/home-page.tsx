@@ -16,7 +16,7 @@ const HomePage = () => {
       <p className="max-w-4xl text-muted-foreground md:text-lg">Discover a new way of learning with our platform, where you can take control of your learning experience and unlock your full potential.</p>
       <div className="flex items-center gap-4">
         <Link
-          href="/courses"
+          href="/admin/courses"
           className={buttonVariants({
             size: "lg",
             variant: "default"
