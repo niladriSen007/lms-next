@@ -36,3 +36,5 @@ export const COURSE_CATEGORIES = [
     name:"Language Learning"
   },
 ]
+
+

@@ -1,6 +1,5 @@
 "use client"
 
-import { CourseLevel } from "@/generated/prisma"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import slugify from "slugify"
@@ -10,11 +9,10 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectValue } from "@/components/ui/select"
@@ -22,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { SelectTrigger } from "@radix-ui/react-select"
 import { Sparkle } from "lucide-react"
 import { COURSE_CATEGORIES } from "../_utils/constant"
+import RickTextEditor from "./rich-text-editor"
 
 
 
@@ -242,6 +241,7 @@ const CourseForm = () => {
           <Title />
           <Slug />
           <SmallDescription />
+
           <FormField
             control={form.control}
             name="description"
@@ -249,7 +249,8 @@ const CourseForm = () => {
               <FormItem className="w-full">
                 <FormLabel>Description</FormLabel>
                 <FormControl>
-                  <Textarea className="min-h-32" placeholder="Enter Description" {...field} />
+                  {/*     <Textarea className="min-h-32" placeholder="Enter Description" {...field} /> */}
+                  <RickTextEditor />
                 </FormControl>
                 <FormMessage />
               </FormItem>
