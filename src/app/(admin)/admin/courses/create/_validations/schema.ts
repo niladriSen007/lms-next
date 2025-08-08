@@ -1,10 +1,11 @@
+import { COURSE_CATEGORIES } from '../_utils/constant';
 import { description } from './../../../../../../components/sidebar/chart-area-interactive';
 import { z } from "zod"
 
 export const courseLevels = ["BEGINNER", "INTERMEDIATE", "ADVANCED"]
 export const CourseStatus = ["DRAFT", "PUBLISHED", "ARCHIVED"]
 
-export const formSchema = z.object({
+export const courseCreationFormSchema = z.object({
   title: z.string().min(2, {
     message: "Title must be at least 2 characters long",
   }).max(50, {
@@ -29,8 +30,8 @@ export const formSchema = z.object({
   level: z.enum(courseLevels, {
     message: "Level must be one of the following: BEGINNER, INTERMEDIATE, ADVANCED",
   }),
-  category: z.string().min(1, {
-    message: "Category is required",
+  category: z.enum(COURSE_CATEGORIES.map((category) => category.name), {
+    message: "Category must be one of the following: " + COURSE_CATEGORIES.map((category) => category.name).join(", "),
   }),
   smallDescription: z.string().min(3, {
     message: "Small description must be at least 3 characters long",
@@ -46,3 +47,6 @@ export const formSchema = z.object({
     message: "Status must be one of the following: DRAFT, PUBLISHED, ARCHIVED",
   }),
 })
+
+
+export type CourseSchemaType = z.infer<typeof courseCreationFormSchema>
